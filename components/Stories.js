@@ -2,6 +2,7 @@ import React from 'react';
 import faker  from 'faker';
 import { useEffect,useState } from 'react';
 import Story from './Story';
+import generateAvatar from "./utils/generateAvatar";
 function Stories() {
     const [suggestions,setSuggestions] = useState([])
 	useEffect(() => {
@@ -9,6 +10,8 @@ function Stories() {
 			...faker.helpers.contextualCard(),
 			id: i,
 		}));
+
+        console.log(suggestions)
         setSuggestions(suggestions)
 	}, []);
 

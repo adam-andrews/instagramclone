@@ -3,7 +3,7 @@ import React from 'react'
 function Story({img,username}) {
   return (
     <div>
-        <im src={img} alt=""/>
+        <img src="https://cdn.fakercloud.com/avatars/victorerixon_128.jpg" alt=""/>
         <p>{username}</p>
     </div>
   )
