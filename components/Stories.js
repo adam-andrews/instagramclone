@@ -9,10 +9,9 @@ function Stories() {
 		const suggestions = [...Array(20)].map((_, i) => ({
 			...faker.helpers.contextualCard(),
 			id: i,
-            img:generateAvatar(Math.random()),
+            img: generateAvatar(Math.random()),
 		}));
 
-        console.log(generateAvatar)
         setSuggestions(suggestions)
 	}, []);
 
