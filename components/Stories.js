@@ -2,7 +2,7 @@ import React from 'react';
 import faker from 'faker';
 import { useEffect, useState } from 'react';
 import Story from './Story';
-import { generateAvatar } from './utils';
+import { generateAvatar } from '../utils';
 function Stories() {
 	const [suggestions, setSuggestions] = useState([]);
 	useEffect(() => {
@@ -22,6 +22,7 @@ function Stories() {
 			))}
 		</div>
 	);
+    
 }
 
 export default Stories;
