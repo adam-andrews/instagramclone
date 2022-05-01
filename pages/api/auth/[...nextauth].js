@@ -15,4 +15,15 @@ export default NextAuth({
 		signOut: '/auth/signout',
 		signUp: '/auth/signup',
 	},
+	callbacks: {
+		async session({ session, token, user }) {
+			session.user.username = session.user.name
+				.split(' ')
+				.join('_')
+				.toLowerCase();
+            session.user.uid = token.sub
+            return session
+            
+		},
+	},
 });
