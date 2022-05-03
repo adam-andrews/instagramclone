@@ -14,17 +14,20 @@ function Posts() {
         
     },[db]);
 
+	console.log(posts)
+
     return (
         <div>
-            {/* {posts.map((post) => (
+             {posts.map((post) => (
                 <Post
                     key={post.id}
-                    userImg={post.userImg}
-                    img={post.img}
-                    username={post.username}
-                    caption={post.caption}
+					id = {post.id}
+                    userImg={post.data().profileImg}
+                    img={post.data().image}
+                    username={post.data().username}
+                    caption={post.data().caption}
                 />
-            ))} */}
+            ))}
         </div>
     );
 }
