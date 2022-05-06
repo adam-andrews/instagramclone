@@ -55,7 +55,9 @@ function Post({ id, username, userImg, img, caption }) {
 
 	useEffect(
 		() =>
-			setLiked(likes.findIndex((like) => like.id === session?.user?.uid) !== -1),
+			setLiked(
+				likes.findIndex((like) => like.id === session?.user?.uid) !== -1
+			),
 
 		[likes]
 	);
@@ -84,8 +86,8 @@ function Post({ id, username, userImg, img, caption }) {
 		});
 	};
 
-	console.log("liked " + liked)
-	console.log("session " + session?.user?.uid)
+	console.log('liked ' + liked);
+	console.log('session ' + session?.user?.uid);
 
 	return (
 		<div className="bg-white my-7 border rounded-sm">
@@ -102,7 +104,11 @@ function Post({ id, username, userImg, img, caption }) {
 			{session && (
 				<div className="flex justify-between p-4 pt-4">
 					<div className="flex space-x-4 ">
-						<HeartIcon onClick={likePost} className="btn" />
+						{liked ? (
+							<HeartIconFilled className="btn text-red-500" onClick={likePost} />
+						) : (
+							<HeartIcon onClick={likePost} className="btn" />
+						)}
 						<ChatIcon className="btn" />
 						<PaperAirplaneIcon className="btn" />
 					</div>
@@ -111,6 +117,9 @@ function Post({ id, username, userImg, img, caption }) {
 			)}
 
 			<p className="p-5 truncate">
+				{likes.length > 0 && (
+					<p className='font-bold mb-1'>{likes.length} likes</p>
+				)}
 				<span className="font-bold mr-1">{username}</span>
 				{caption}
 			</p>
